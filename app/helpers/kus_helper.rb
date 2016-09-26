@@ -1,0 +1,2 @@
+module KusHelper
+end

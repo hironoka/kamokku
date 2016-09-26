@@ -1,0 +1,17 @@
+-# %header.header
+-#   .header__bar.row
+-#     %h1.grid-6>
+-#       = link_to "Kamokku", :root
+-#     - if user_signed_in?
+-#       .user_nav.grid-6
+-#         %span
+-#           = current_user.nickname
+-#           %ul.user__info
+-#             %li
+-#               %a{:href => "/users/#{current_user.id}"} マイページ
+-#               = link_to "ログアウト", destroy_user_session_path, method: :delete
+-#         %a.post{:href => "/tweets/new"} 投稿する
+-#     - else
+-#       .grid-6
+-#         = link_to "ログイン", new_user_session_path, :class => 'post'
+-#         = link_to "新規登録", new_user_registration_path, :class => 'post'

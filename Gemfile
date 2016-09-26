@@ -23,6 +23,20 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'compass-rails','~> 2.0'
+gem 'sprockets'
+#デバック用
+gem 'pry-rails'
+
+#haml記法の導入
+gem 'haml-rails'
+gem 'erb2haml'
+
+#bootstrapの導入
+gem 'bootstrap-sass'
+
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,4 +58,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

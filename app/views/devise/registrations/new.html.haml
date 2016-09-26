@@ -1,0 +1,28 @@
+.container.user-new{style: "margin-top: 125px"}
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .col-md-12
+      %header.row.user-nav.row
+        .col-md-12
+          %h2 Register
+          .user-name_image.row
+            .user-image
+              %button.btn.btn-primary Add imag
+              = f.file_field :avatar
+            .user-name
+              = f.text_field :name, autofocus: true, placeholder: "俳号", required: true
+            .user-email
+            = f.email_field :email, placeholder:"E-Mail"
+            .user-password
+            = f.password_field :password, placeholder: "Password"
+          .col-md-12
+            %h4 Member of
+            .user-user-member.row
+              .user-name
+                = f.text_field :group, placeholder: "Group"
+            %h4 Profile
+            .user-user-profile.row
+              .user-name.col-md-12
+                = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile"
+          .row.text-center.user-btn
+            = f.submit value: "Save", class: 'btn btn-lg btn-primary btn-block'

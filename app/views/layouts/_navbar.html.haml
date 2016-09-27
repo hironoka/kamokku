@@ -17,12 +17,13 @@
         %li
           %a{:href => "#"} Group page
         - if user_signed_in?
-          %ul.nav.navbar-nav.navbar-right{style: "margin-right: auto;"}
+          %ul.nav.navbar-nav{style: "margin-right: auto;"}
             %li
               %form.navbar-form.navbar-left{:role => "search"}
                 .form-group
                   %input.form-control{:placeholder => "Search", :type => "text"}/
                 %button.btn.btn-default{:type => "submit"} Submit
+          %ul.nav.navbar-nav.navbar-right
             %li.dropdown
               %a.dropdown-toggle{aria: {expanded: "false"}, data: {toggle: "dropdown"}, href: "#", role: "button"}
                 = current_user.email

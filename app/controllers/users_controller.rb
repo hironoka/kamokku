@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to :root
-      alert_user_edit_successe_message
     else
       redirect_to edit_user_path
       alert_user_edit_error_message

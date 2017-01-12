@@ -1,17 +1,23 @@
 class TweetsController < ApplicationController
-
-  # before_action :move_to_index, :except => [:index]
+  before_action :set_prototype, only: [:show, :edit]
+  before_action :set_user, only: [:show]
 
   def index
     @tweets = Tweet.all
     # .includes(:user).page(params[:page]).per(5).order("created_at DESC")
+    @tweet = Tweet.new
   end
 
   def new
   end
 
   def create
-    Tweet.create(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id)
+    @tweet = current_user.tweets.new(tweet_params)
+    if @tweet.save
+      redirect_to index
+    else
+      render index
+    end
   end
 
   def destroy
@@ -39,7 +45,8 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.permit(:image, :text)
+    params.require(:tweet).permit(:tweet).merge(group_id: 1)
+    # params.require(:message).permit(:body, :image).merge(group_id: @group.id)
   end
 
   def move_to_index

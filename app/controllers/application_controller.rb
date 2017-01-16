@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
 
   def alert_user_edit_error_message
   end
+
+  def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar, :profile])
+      devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :avatar, :profile])
+end
 end

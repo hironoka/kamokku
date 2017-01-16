@@ -12,14 +12,10 @@
               %button.btn.btn-primary Change image
               = f.file_field :avatar
         .col-md-12
-          %h4 Group of
-          .user-user-member.row
-            .user-name.col-md-12
-              = f.text_field :group, placeholder: "Group"
           %h4 Profile
           .user-user-profile.row
             .user-name.col-md-12
               = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile"
               end
-      .row.text-center.user-btn
-        = f.submit value: "Save", class: "btn btn-lg btn-primary btn-block"
+        .row.text-center.user-btn
+          = f.submit value: "Save", class: "btn btn-lg btn-primary btn-block"

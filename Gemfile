@@ -25,16 +25,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'compass-rails','~> 2.0'
 gem 'sprockets'
-#デバック用
+
 gem 'pry-rails'
 
-#haml記法の導入
 gem 'haml-rails'
 gem 'erb2haml'
 
-#bootstrapの導入
-gem 'bootstrap-sass'
 
+gem 'bootstrap-sass'
 gem 'devise'
 
 # Use ActiveModel has_secure_password

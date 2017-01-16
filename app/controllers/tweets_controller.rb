@@ -1,22 +1,23 @@
 class TweetsController < ApplicationController
-  before_action :set_prototype, only: [:show, :edit]
+  before_action :set_prototype, :authenticate_user!, only: [:show, :edit]
   before_action :set_user, only: [:show]
 
   def index
-    @tweets = Tweet.all
-    # .includes(:user).page(params[:page]).per(5).order("created_at DESC")
-    @tweet = Tweet.new
+    @user = current_user
+    @tweets = Tweet.includes(:user).order("id DESC")
   end
 
   def new
+    @user = current_user
+    @tweet = Tweet.new
   end
 
   def create
-    @tweet = current_user.tweets.new(tweet_params)
+    @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      redirect_to index
+      redirect_to root_path
     else
-      render index
+      redirect_to new_tweet_path
     end
   end
 
@@ -45,7 +46,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.require(:tweet).permit(:tweet).merge(group_id: 1)
+    params.require(:tweet).permit(:tweet, :user_id, :title, :group_id, :piece_id)
     # params.require(:message).permit(:body, :image).merge(group_id: @group.id)
   end
 

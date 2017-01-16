@@ -1,9 +1,5 @@
 = render "layouts/header"
 .contents.row{style: "margin-top: 125px"}
   .form_group
-    = form_for @tweet do |f|
-      = f.text_area :tweet, placeholder: "type a message", class: "form-control", id: "message_form", rows: 1
-      .form__right
-        = f.submit value: "Send", class: "btn btn-default"
   - @tweets.each do |tweet|
     = render partial: "tweet", locals: { tweet: tweet }

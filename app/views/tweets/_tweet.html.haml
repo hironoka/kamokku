@@ -1,8 +1,8 @@
 .panel.panel-default
   .panel-body
-    %span= tweet.user.email
     %span= tweet.user.name
-    %span= tweet.created_at.strftime('%Y/%m/%d %H:%M:%S')
+    %span= tweet.user.email
+    %span=  time_ago_in_words (tweet.created_at - 9.hour)
   - if tweet.title?
     .panel-heading
       %span= tweet.title

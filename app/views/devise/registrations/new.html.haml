@@ -6,23 +6,23 @@
         .col-md-12
           %h2 Register
           .user-name_image.row
+            %h4 Image
             .user-image
-              %button.btn.btn-primary Add imag
               = f.file_field :avatar
+            %h4 Name
             .user-name
-              = f.text_field :name, autofocus: true, placeholder: "俳号", required: true
+              = f.text_field :name, autofocus: true, placeholder: "Name", required: true
+            %h4 Image
             .user-email
             = f.email_field :email, placeholder:"E-Mail"
+            %h4 Password
             .user-password
             = f.password_field :password, placeholder: "Password"
-          .col-md-12
             %h4 Member of
             .user-user-member.row
-              .user-name
-                = f.text_field :group_id, placeholder: "Group"
+              = f.text_field :group_id, placeholder: "Group"
             %h4 Profile
             .user-user-profile.row
-              .user-name.col-md-12
-                = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile"
+              = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile"
           .row.text-center.user-btn
             = f.submit value: "Save", class: 'btn btn-lg btn-primary btn-block'

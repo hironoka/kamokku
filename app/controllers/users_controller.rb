@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @tweets = Tweet.where(user_id: current_user.id)
+    @tweets = Tweet.where(user_id: current_user.id).order("id DESC")
   end
 
   def edit
